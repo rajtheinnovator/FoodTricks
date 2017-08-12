@@ -1,19 +1,20 @@
 
 package com.enpassio.foodtricks.model;
 
-import java.io.Serializable;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 
 public class Ingredient implements Serializable, Parcelable
 {
 
     @SerializedName("quantity")
     @Expose
-    private Integer quantity;
+    private float quantity;
     @SerializedName("measure")
     @Expose
     private String measure;
@@ -28,7 +29,7 @@ public class Ingredient implements Serializable, Parcelable
         })
         public Ingredient createFromParcel(Parcel in) {
             Ingredient instance = new Ingredient();
-            instance.quantity = ((Integer) in.readValue((Integer.class.getClassLoader())));
+            instance.quantity = ((Float) in.readValue((Float.class.getClassLoader())));
             instance.measure = ((String) in.readValue((String.class.getClassLoader())));
             instance.ingredient = ((String) in.readValue((String.class.getClassLoader())));
             return instance;
@@ -62,7 +63,7 @@ public class Ingredient implements Serializable, Parcelable
         this.ingredient = ingredient;
     }
 
-    public Integer getQuantity() {
+    public Float getQuantity() {
         return quantity;
     }
 

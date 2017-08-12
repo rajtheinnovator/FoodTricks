@@ -54,12 +54,10 @@ public class MenuActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<MenuList>> call, Throwable t) {
+                Log.i("my_tag ", t.getMessage());
                 Log.v("my_tag", "" + "OnFailure called : "+call.request().url());
-                call.cancel();
+                call.clone().enqueue(this);
             }
         });
-
-
-        
     }
 }
